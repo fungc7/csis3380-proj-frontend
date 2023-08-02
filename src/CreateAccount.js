@@ -73,7 +73,7 @@ function CreateAccount () {
             </div>
             <div className="form-outline">
                 <label htmlFor="password" name="password">Password</label><br />
-                <input type="text" className="rounded-input" name="password" id="password" placeholder="Password" onChange={handleInputChange} required />
+                <input type="password" className="rounded-input" name="password" id="password" placeholder="Password" onChange={handleInputChange} required />
             </div><br />
             <ul className="list-account-set-up-rules">
                 <li style={{color: passwordLengthColor}}>Password must have at least 8 characters</li>

@@ -20,7 +20,7 @@ body {
   width: 100%;
     margin: auto;
     min-height: 900px;
-    /*padding: 20px;*/
+    padding: 20px;
 }
 
 .card {
@@ -72,6 +72,10 @@ nav {
   /* color: #fff; */
 }
 
+h3 {
+  text-align: center;
+}
+
 .search::placeholder {
   color: var(--btn-color);
 }
@@ -98,6 +102,11 @@ main {
 
 .movie img {
   width: 100%;
+}
+
+.reviews-login-msg, .review-form  {
+  width: 80%;
+  margin: auto;
 }
 
 .movie-info {
@@ -182,7 +191,8 @@ main {
 }
 
 h2 {
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .rating {
@@ -214,10 +224,6 @@ h2 {
 
 #light .movie.card h3 {
   color: white;
-}
-
-body {
-  text-align: center;
 }
 
 .rounded-input {

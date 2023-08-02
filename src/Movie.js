@@ -69,7 +69,11 @@ function Movie({ loggedIn }) {
                     <p className="card-text">{movie[0].overview}</p>
                 </div>
                 <div className="reviews">
-                    <h4 className="card-title">Reviews</h4>
+                    <h4 className="card-title reviews-login-msg">Reviews</h4>
+                    {sessionStorage.user ? (null)
+                        : (<div>
+                            <p className="reviews-login-msg"><a href="/login">Login</a> to write a review! </p>
+                        </div>)}
                     {reviews.length > 0 ?
                         (reviews.map(review =>
                             <ReviewCard 
@@ -79,14 +83,10 @@ function Movie({ loggedIn }) {
                                 date={new Date(review.reviewTimestamp).toISOString().replace(/T/, ' ').replace(/\..+/, '').slice(0,-3)}
                             />))
                         : (<h4>Be the first one to review this movie !!!</h4>)}
-                    {sessionStorage.user ? (null)
-                        : (<div>
-                            <p><a href="/login">Login</a> to write a review! </p>
-                        </div>)}
                     {sessionStorage.user ? (
                         <>
-                            <h4 className="card-title">Write Your Review !</h4>
-                            <div className="form-group">
+                            <h4 className="card-title reviews-login-msg">Write Your Review !</h4>
+                            <div className="form-group review-form">
                                 <form onSubmit={handleSubmit}>
                                     <textarea className="form-control" name="content" id="reviewcontent" rows="3" onChange={handleInputChange}></textarea>
                                     <select className="custom-select w-25" name="rating" onChange={handleInputChange}>

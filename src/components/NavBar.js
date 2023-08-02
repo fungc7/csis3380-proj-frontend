@@ -18,9 +18,9 @@ export default function NavBar({ loggedIn, updateRootLoginStatus, updateRootSear
 
     return (
         <nav id="list" className="navbar navbar-expand-lg navbar-light">
-            <div>
-                <ul className="navbar-nav mr-auto" />
-            </div>
+            {! sessionStorage.user ? null : (
+                <span className="navbar-text" style={{color: "white"}}>Hi, {sessionStorage.user}</span>
+            )}
             {! sessionStorage.user ?
                 (<ul className="navbar-nav mr-auto">
                     <li className="nav-item">
@@ -30,16 +30,16 @@ export default function NavBar({ loggedIn, updateRootLoginStatus, updateRootSear
                         <a className="nav-link" href="/createaccount">Create account</a>
                     </li>
                 </ul>)
-                : (<ul className="navbar-nav mr-auto">
-                    <li className="nav-item">
+                : (<div className="navbar-nav mr-auto">
+                    <a class="nav-link">
                         <form onSubmit={() => {
                             sessionStorage.removeItem('user');
                             updateRootLoginStatus(false);
                         }}>
-                            <input type="submit" className="nav-link" name="logout" value="Logout" />
+                            <input type="submit" className="btn btn-dark" name="logout" value="Logout" />
                         </form>
-                    </li>
-                </ul>)}
+                    </a>
+                </div>)}
                 { isHomeOrMoviePage ?
                     (<input type="text" id="search" className="search" placeholder="Search movies..." onChange={handleInputChange}/>)
                     : null
