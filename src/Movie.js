@@ -82,7 +82,7 @@ function Movie({ loggedIn }) {
                                 rating={review.rating}
                                 date={new Date(review.reviewTimestamp).toISOString().replace(/T/, ' ').replace(/\..+/, '').slice(0,-3)}
                             />))
-                        : (<h4>Be the first one to review this movie !!!</h4>)}
+                        : (<h4 className="reviews-login-msg">Be the first one to review this movie !!!</h4>)}
                     {sessionStorage.user ? (
                         <>
                             <h4 className="card-title reviews-login-msg">Write Your Review !</h4>
