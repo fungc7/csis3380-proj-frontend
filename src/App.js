@@ -49,7 +49,7 @@ function App(props) {
           <Route path="/" element={<Home searchText={searchText} loggedIn={loggedIn}/>} />
           <Route path="/login" element={<Login loggedIn={loggedIn} updateRootLoginStatus={ handleUpdateLoginStatus }/>} />
           <Route path="/createaccount" element={<CreateAccount />} />
-          <Route path="movie/:movieId" element={<Movie loggedIn={loggedIn}/>} />
+          <Route path="/movie/:movieId" element={<Movie loggedIn={loggedIn}/>} />
           <Route path="/successful" element={<Successful/>} />
         </Routes>
       </BrowserRouter>

@@ -30,7 +30,7 @@ function CreateAccount () {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const res = await postForm(formData, process.env.URL + '/createaccount');
+        const res = await postForm(formData, process.env.BACKEND + '/createaccount');
         const data = await res.json();
         console.log(data.created);
         if (data.created) {

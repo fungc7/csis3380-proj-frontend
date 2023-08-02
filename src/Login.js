@@ -23,7 +23,7 @@ function Login({ loggedIn, updateRootLoginStatus }) {
     async function handleSubmit(e) {
         e.preventDefault();
         console.log(loginStatus);
-        const res = await postForm(formData, process.env.URL + '/login');
+        const res = await postForm(formData, process.env.BACKEND + '/login');
         const data = await res.json();
         console.log(data.authRes);
         if (await data.authRes) {
