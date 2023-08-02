@@ -28,7 +28,6 @@ function Home({ searchText, loggedIn }) {
 
   // query movie data on render
   useEffect(() => {
-    console.log(1)
     // set previous page as current page for login redirect
     sessionStorage.setItem('prevpage', window.location.pathname);
     fetch(url()['url'])
@@ -40,14 +39,13 @@ function Home({ searchText, loggedIn }) {
         }))
         setMovies(data);
         setAllMovies(data);
-        console.log(1.1)
       })
   }, []);
 
   // featured movies
-  const featuredMovie = getTopNFeaturedMovies(4, allMovies);
+  const featuredMovie = getTopNFeaturedMovies(6, allMovies);
   // latest movies
-  const latestMovies = getTopNRecentMovies(4, allMovies);
+  const latestMovies = getTopNRecentMovies(6, allMovies);
   // for slideshows
   const slideShowMovies = allMovies.filter((movie, idx) => {
     return idx < 3;
