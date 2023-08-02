@@ -35,12 +35,12 @@ function Movie({ loggedIn }) {
             username: sessionStorage.getItem('user'),
             movieId: parseInt(movieId)
         }
-        const res = await postForm(fullForm, 'http://localhost:3300/movie/' + movieId + '/review');
+        const res = await postForm(fullForm,  process.env.URL + '/movie/' + movieId + '/review');
         const data = await res.json();
         console.log(data.message);
 
         // append review after post
-        fetch('http://localhost:3300/movie/' + movieId + '/review')
+        fetch(process.env.URL + '/movie/' + movieId + '/review')
             .then((res) => res.json())
             .then(data => setReviews(data))
     }
@@ -49,12 +49,12 @@ function Movie({ loggedIn }) {
         // set previous page
         sessionStorage.setItem('prevpage', window.location.pathname);
         // fetch movies
-        fetch('http://localhost:3300/movie/' + movieId)
+        fetch(process.env.URL + '/movie/' + movieId)
             .then((res) => res.json())
             .then((data) => setMovie(data));
 
         // fetch reviews
-        fetch('http://localhost:3300/movie/' + movieId + '/review')
+        fetch(process.env.URL + '/movie/' + movieId + '/review')
             .then((res) => res.json())
             .then(data => setReviews(data))
     }, []);

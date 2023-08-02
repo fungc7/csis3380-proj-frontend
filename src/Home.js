@@ -30,7 +30,7 @@ function Home({ searchText, loggedIn }) {
     console.log(1)
     // set previous page as current page for login redirect
     sessionStorage.setItem('prevpage', window.location.pathname);
-    fetch('http://localhost:3300/')
+    fetch( process.env.URL + '/')
       .then((res) => res.json())
       .then((data) => {
         data = data.map(movie => ({
