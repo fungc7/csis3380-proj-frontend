@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import postForm from "./postForm";
 import { useNavigate } from 'react-router-dom';
 import './style.css';
+import url from "./Constants";
 
 function CreateAccount () {
     const navigate = useNavigate();
@@ -30,7 +31,7 @@ function CreateAccount () {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const res = await postForm(formData, process.env.BACKEND + '/createaccount');
+        const res = await postForm(formData, url()['url'] + '/createaccount');
         const data = await res.json();
         console.log(data.created);
         if (data.created) {

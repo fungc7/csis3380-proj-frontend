@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import SlideShow from './components/SlideShow';
 import FeaturedMovie from "./components/FeaturedMovie";
 import LatestMovie from "./components/LatestMovie";
+import url from "./Constants";
 
 import { useState, useEffect } from "react";
 
@@ -30,7 +31,7 @@ function Home({ searchText, loggedIn }) {
     console.log(1)
     // set previous page as current page for login redirect
     sessionStorage.setItem('prevpage', window.location.pathname);
-    fetch(process.env.BACKEND)
+    fetch(url()['url'])
       .then((res) => res.json())
       .then((data) => {
         data = data.map(movie => ({

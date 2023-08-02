@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import postForm from "./postForm";
 import ReviewCard from "./components/ReviewCard";
+import url from "./Constants";
 
 function Movie({ loggedIn }) {
     const IMAGE_URL_PREFIX = "https://image.tmdb.org/t/p/w1280";
@@ -35,12 +36,12 @@ function Movie({ loggedIn }) {
             username: sessionStorage.getItem('user'),
             movieId: parseInt(movieId)
         }
-        const res = await postForm(fullForm,  process.env.BACKEND + '/movie/' + movieId + '/review');
+        const res = await postForm(fullForm,  url()['url'] + '/movie/' + movieId + '/review');
         const data = await res.json();
         console.log(data.message);
 
         // append review after post
-        fetch(process.env.BACKEND + '/movie/' + movieId + '/review')
+        fetch(url()['url'] + '/movie/' + movieId + '/review')
             .then((res) => res.json())
             .then(data => setReviews(data))
     }
@@ -49,12 +50,12 @@ function Movie({ loggedIn }) {
         // set previous page
         sessionStorage.setItem('prevpage', window.location.pathname);
         // fetch movies
-        fetch(process.env.BACKEND + '/movie/' + movieId)
+        fetch(url()['url'] + '/movie/' + movieId)
             .then((res) => res.json())
             .then((data) => setMovie(data));
 
         // fetch reviews
-        fetch(process.env.BACKEND + '/movie/' + movieId + '/review')
+        fetch(url()['url'] + '/movie/' + movieId + '/review')
             .then((res) => res.json())
             .then(data => setReviews(data))
     }, []);

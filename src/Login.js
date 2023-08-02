@@ -2,6 +2,7 @@ import { useState } from "react";
 import postForm from "./postForm";
 import { useNavigate } from 'react-router-dom';
 import './style.css';
+import url from "./Constants";
 
 function Login({ loggedIn, updateRootLoginStatus }) {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ function Login({ loggedIn, updateRootLoginStatus }) {
     async function handleSubmit(e) {
         e.preventDefault();
         console.log(loginStatus);
-        const res = await postForm(formData, process.env.BACKEND + '/login');
+        const res = await postForm(formData, url()['url'] + '/login');
         const data = await res.json();
         console.log(data.authRes);
         if (await data.authRes) {
