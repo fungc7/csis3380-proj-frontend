@@ -44,6 +44,7 @@ function Movie({ loggedIn }) {
         fetch(url()['url'] + '/movie/' + movieId + '/review')
             .then((res) => res.json())
             .then(data => setReviews(data))
+        e.target.reset();
     }
 
     useEffect(() => {
