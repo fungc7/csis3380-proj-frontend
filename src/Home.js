@@ -81,7 +81,7 @@ function Home({ searchText, loggedIn }) {
                 movieId={movie.movieId}
                 movieTitle={movie.title}
                 overview={movie.overview}
-                avgRating={movie.avgRating ? movie.avgRating.toFix(1) : "-"}
+                avgRating={movie.avgRating ? movie.avgRating.toFixed(1) : "-"}
                 imageUrl={movie.imageUrl}
               />
             )}
