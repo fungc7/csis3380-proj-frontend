@@ -9,7 +9,7 @@ export default function MovieCard(props) {
             </a>
             <div className="movie-info">
                 <h3>{props.movieTitle}</h3>
-                <span className="orange">{props.avgRating}</span>
+                <span className="orange">{props.avgRating.toFixed(1)}</span>
             </div>
             <div className="overview">
                 <h3>Overview</h3>
